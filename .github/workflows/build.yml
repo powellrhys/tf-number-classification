@@ -17,16 +17,20 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v3
 
-      - name: Login to GitHub Container Registry
-        uses: docker/login-action@v2
+      # - name: Login to GitHub Container Registry
+      #   uses: docker/login-action@v2
+      #   with:
+      #     registry: ghcr.io
+      #     username: ${{ github.actor }}
+      #     password: ${{ secrets.GITHUB_TOKEN }}
+
+      # - name: "Build image: $IMAGE_NAME"
+      #   run: docker build . -f Dockerfile -t $REGISTRY/$IMAGE_NAME
+
+      # - name: Push $IMAGE_NAME to container registry
+      #   run: |
+      #     docker push $REGISTRY/$IMAGE_NAME:latest
+
+      - uses: azure/login@v1
         with:
-          registry: ghcr.io
-          username: ${{ github.actor }}
-          password: ${{ secrets.GITHUB_TOKEN }}
-
-      - name: "Build image: $IMAGE_NAME"
-        run: docker build . -f Dockerfile -t $REGISTRY/$IMAGE_NAME
-
-      - name: Push $IMAGE_NAME to container registry
-        run: |
-          docker push $REGISTRY/$IMAGE_NAME:latest
+          creds: ${{ secrets.AZURE_CREDENTIALS }}
