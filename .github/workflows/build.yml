@@ -37,5 +37,5 @@ jobs:
 
       - uses: azure/webapps-deploy@v2
         with:
-        app-name: tf-number-classification
-        package: $REGISTRY/$IMAGE_NAME:latest
+          app-name: tf-number-classification
+          package: $REGISTRY/$IMAGE_NAME:latest
