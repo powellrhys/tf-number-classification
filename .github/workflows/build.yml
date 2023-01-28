@@ -31,11 +31,25 @@ jobs:
       #   run: |
       #     docker push $REGISTRY/$IMAGE_NAME:latest
 
+      # - uses: azure/login@v1
+      #   with:
+      #     creds: ${{ secrets.AZURE_CREDENTIALS }}
+
+      # - uses: azure/webapps-deploy@v2
+      #   with:
+      #     app-name: tf-number-classification
+      #     images: 'ghcr.io/${{ github.repository }}:latest'
+
+      - name: Sign in to Azure 
+      # Use the GitHub secret you added.
       - uses: azure/login@v1
         with:
           creds: ${{ secrets.AZURE_CREDENTIALS }}
-
+      - name: Deploy to Azure Web App
+      # Remove publish-profile.
       - uses: azure/webapps-deploy@v2
         with:
-          app-name: tf-number-classification
-          images: 'ghcr.io/${{ github.repository }}:latest'
+          app-name: '<app-name>'
+          slot-name: 'production'
+          package: .
+
