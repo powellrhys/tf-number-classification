@@ -38,4 +38,4 @@ jobs:
       - uses: azure/webapps-deploy@v2
         with:
           app-name: tf-number-classification
-          images: 'ghcr.io/${{ env.REPO }}:${{ github.sha }}'
+          images: 'ghcr.io/${{ github.repository }}:latest'
