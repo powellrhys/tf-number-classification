@@ -44,7 +44,7 @@ jobs:
             [
               {
                 "name": "DOCKER_REGISTRY_SERVER_PASSWORD",
-                "value": "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",
+                "value": "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",
                 "slotSetting": false
               },
               {
