@@ -39,7 +39,7 @@ jobs:
         uses: Azure/appservice-settings@v1
         id: settings
         with:
-          app-name: tf-number-classification'
+          app-name: 'tf-number-classification'
           app-settings-json: |
             [
               {
