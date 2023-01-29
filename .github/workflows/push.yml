@@ -56,6 +56,16 @@ jobs:
                 "name": "DOCKER_REGISTRY_SERVER_USERNAME",
                 "value": "${{ github.actor }}",
                 "slotSetting": false
+              },
+              {
+                "name": "WEBSITES_PORT",
+                "value": "8501",
+                "slotSetting": false
+              },
+              {
+                "name": "PORT",
+                "value": "8501",
+                "slotSetting": false
               }
             ]
 
