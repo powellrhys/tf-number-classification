@@ -44,7 +44,7 @@ jobs:
             [
               {
                 "name": "DOCKER_REGISTRY_SERVER_PASSWORD",
-                "value": "${{ secrets.GITHUB_TOKEN }}",
+                "value": "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",
                 "slotSetting": false
               },
               {
