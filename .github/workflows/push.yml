@@ -35,33 +35,33 @@ jobs:
         with:
           creds: ${{ secrets.AZURE_CREDENTIALS }}
 
-      # - uses: azure/webapps-deploy@v2
-      #   with:
-      #     app-name: tf-number-classification
-      #     images: 'ghcr.io/${{ github.repository }}:latest'
-
       - name: Set Web App ACR authentication
         uses: Azure/appservice-settings@v1
         with:
           app-name: tf-number-classification'
           app-settings-json: |
             [
-                {
-                    "name": "DOCKER_REGISTRY_SERVER_PASSWORD",
-                    "value": "${{ secrets.GITHUB_TOKEN }}",
-                    "slotSetting": false
-                },
-                {
-                    "name": "DOCKER_REGISTRY_SERVER_URL",
-                    "value": "https://ghcr.io2",
-                    "slotSetting": false
-                },
-                {
-                    "name": "DOCKER_REGISTRY_SERVER_USERNAME",
-                    "value": "${{ github.actor }}",
-                    "slotSetting": false
-                }
+              {
+                "name": "DOCKER_REGISTRY_SERVER_PASSWORD",
+                "value": "${{ secrets.GITHUB_TOKEN }}",
+                "slotSetting": false
+              },
+              {
+                "name": "DOCKER_REGISTRY_SERVER_URL",
+                "value": "https://ghcr.io2",
+                "slotSetting": false
+              },
+              {
+                "name": "DOCKER_REGISTRY_SERVER_USERNAME",
+                "value": "${{ github.actor }}",
+                "slotSetting": false
+              }
             ]
+
+      # - uses: azure/webapps-deploy@v2
+      #   with:
+      #     app-name: tf-number-classification
+      #     images: 'ghcr.io/${{ github.repository }}:latest'
 
       # - name: Deploy to Azure Web App
       #   id: deploy-to-webapp
