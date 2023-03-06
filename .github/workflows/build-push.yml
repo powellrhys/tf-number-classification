@@ -24,9 +24,9 @@ jobs:
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: "Build image: $IMAGE_NAME"
+      - name: "Build image: ${{ github.repository }}"
         run: docker build . -f Dockerfile -t $REGISTRY/$IMAGE_NAME
 
-      - name: Push $IMAGE_NAME to container registry
+      - name: Push ${{ github.repository }} to container registry
         run: |
           docker push $REGISTRY/$IMAGE_NAME:latest
