@@ -60,5 +60,6 @@ jobs:
         with:
           azcliversion: 2.30.0
           inlineScript: |
-            az --version
+            az account set -s rhys-powell-subscription
+            az account show
 
