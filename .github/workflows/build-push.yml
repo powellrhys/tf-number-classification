@@ -64,7 +64,8 @@ jobs:
           IMAGE_NAME: $IMAGE_NAME:latest
         with:
           azcliversion: 2.30.0
-          inlineScript: |
+        shell: pwsh
+        run: |
             ./.github/scripts/webapp-deploy.ps1 $SUBSCRIPTION $RESOURCE_GROUP $APP_NAME $IMAGE_NAME
 
             
