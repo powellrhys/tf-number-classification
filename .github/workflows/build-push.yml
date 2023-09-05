@@ -57,11 +57,14 @@ jobs:
 
       - name: Azure CLI script file
         uses: azure/CLI@v1
+        env:
+          SUBSCRIPTION: '${{ secrets.SUBSCRIPTION }}'
+          RESOURCE_GROUP: '${{ secrets.RESOURCE_GROUP }}'
+          APP_NAME: tf-number-classification
+          IMAGE_NAME: $IMAGE_NAME:latest
         with:
           azcliversion: 2.30.0
           inlineScript: |
-            az account set -s rhys-powell-subscription
-            az account show
-            az webapp config appsettings set -n powershell-test28484 -g powershell --settings WEBSITES_PORT=8502
+            .\.github\scripts\webapp-deploy.ps1 $SUBSCRIPTION $RESOURCE_GROUP $APP_NAME $IMAGE_NAME
 
-
+            
