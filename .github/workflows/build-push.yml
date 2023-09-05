@@ -65,6 +65,6 @@ jobs:
         with:
           azcliversion: 2.30.0
           inlineScript: |
-            .\.github\scripts\webapp-deploy.ps1 $SUBSCRIPTION $RESOURCE_GROUP $APP_NAME $IMAGE_NAME
+            ./.github/scripts/webapp-deploy.ps1 $SUBSCRIPTION $RESOURCE_GROUP $APP_NAME $IMAGE_NAME
 
             
