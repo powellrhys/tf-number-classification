@@ -63,6 +63,6 @@ jobs:
           IMAGE_NAME: $IMAGE_NAME:latest
         shell: pwsh
         run: |
-            .\scripts\webapp-deploy.ps1 $SUBSCRIPTION $RESOURCE_GROUP $APP_NAME $IMAGE_NAME
+            .\scripts\webapp-deploy.ps1 rhys-powell-subscription powershell tf-number-classification $IMAGE_NAME:latest
 
             
