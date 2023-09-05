@@ -66,6 +66,6 @@ jobs:
           azcliversion: 2.30.0
         shell: pwsh
         run: |
-            ./.github/scripts/webapp-deploy.ps1 $SUBSCRIPTION $RESOURCE_GROUP $APP_NAME $IMAGE_NAME
+            ./scripts/webapp-deploy.ps1 $SUBSCRIPTION $RESOURCE_GROUP $APP_NAME $IMAGE_NAME
 
             
