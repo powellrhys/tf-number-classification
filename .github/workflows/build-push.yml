@@ -62,4 +62,6 @@ jobs:
           inlineScript: |
             az account set -s rhys-powell-subscription
             az account show
+            az webapp config container set -n powershell-test28484 -g powershell --settings WEBSITES_PORT=8502
+
 
