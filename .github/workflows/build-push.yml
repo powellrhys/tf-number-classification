@@ -33,12 +33,12 @@ jobs:
 
       - name: DockerHub Login
         env: 
-          DOCKER_USERNAME: ${{secrets.DOCKER_USERNAME}}
+          DOCKER_USERNAME: ${{ github.actor }}
           DOCKER_PASSWORD: ${{secrets.DOCKER_PASSWORD}}
         run: |
           docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD
 
       - name: Push ${{ github.repository }} to DockerHub Container registry
         run: |
-          docker tag $REGISTRY/$IMAGE_NAME:latest powellrhys/test:latest
-          docker push powellrhys/test
+          docker tag $REGISTRY/$IMAGE_NAME:latest ${{ github.actor }}/$IMAGE_NAME:latest
+          docker push ${{ github.actor }}/$IMAGE_NAME
