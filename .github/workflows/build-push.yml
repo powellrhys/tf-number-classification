@@ -56,16 +56,13 @@ jobs:
           creds: '${{ secrets.AZURE_CREDENTIALS }}'
 
       - name: Azure CLI script file
-        uses: azure/CLI@v1
         env:
           SUBSCRIPTION: '${{ secrets.SUBSCRIPTION }}'
           RESOURCE_GROUP: '${{ secrets.RESOURCE_GROUP }}'
           APP_NAME: tf-number-classification
           IMAGE_NAME: $IMAGE_NAME:latest
-        with:
-          azcliversion: 2.30.0
         shell: pwsh
         run: |
-            ./scripts/webapp-deploy.ps1 $SUBSCRIPTION $RESOURCE_GROUP $APP_NAME $IMAGE_NAME
+            .\scripts\webapp-deploy.ps1 $SUBSCRIPTION $RESOURCE_GROUP $APP_NAME $IMAGE_NAME
 
             
